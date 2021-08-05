@@ -2,7 +2,7 @@
 
 module Edools
   class Invitation
-    attr_reader :id, :first_name, :email, :errors
+    attr_reader :id, :first_name, :email, :errors, :data
 
     def initialize(data = {})
       @id = data[:id]
