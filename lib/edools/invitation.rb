@@ -21,6 +21,12 @@ module Edools
       }
     end
 
+    def active_enrollment_by(school_product_id)
+      @data[:enrollments].find do |e|
+        e[:status] == 'active' && e[:school_product_id] == school_product_id
+      end
+    end
+
     def self.create(data = {})
       new Edools::ApiRequest.request(:post, base_url, invitation: data)
     rescue Edools::RequestWithErrors => exception
